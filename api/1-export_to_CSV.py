@@ -19,12 +19,14 @@ if __name__ == '__main__':
             format(employee_user_id['id'])).json()
 
     # Variables
-    USER_ID = employee_user_id['id']
-    USERNAME = employee_user_id['name']
+    USER_ID = employee_info[0]['userId']
+    USERNAME = employee_user_id['username']
 
     filename = str(USER_ID) + '.csv'
 
     with open(filename, 'w') as f:
         for task in employee_info:
-            f.write("\"{}\", \"{}\", \"{}\", \"{}\"\n".format(USER_ID, USERNAME, task['completed'], task['title']))
+            f.write("\"{}\", \"{}\", \"{}\", \"{}\"\n".
+                    format(USER_ID, USERNAME,
+                           task['completed'], task['title']))
         f.close()
