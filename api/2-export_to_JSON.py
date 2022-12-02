@@ -6,8 +6,9 @@
 """
 if __name__ == '__main__':
     """
-        task 0
+        task 2
     """
+    import json
     import requests
     import sys
     employee_id = sys.argv[1]
@@ -17,20 +18,22 @@ if __name__ == '__main__':
     employee_info = requests.\
         get('https://jsonplaceholder.typicode.com/todos?userId={}'.
             format(employee_user_id['id'])).json()
-    # Variables
-    EMPLOYEE_NAME = employee_user_id['name']
-    NUMBER_OF_DONE_TASKS = 0
-    TOTAL_NUMBER_OF_TASKS = 0
-    TASK_TITLE = []
-    for task in employee_info:
-        if employee_user_id['id'] == task['userId']:
-            if task['completed']:
-                NUMBER_OF_DONE_TASKS += 1
-                TASK_TITLE.append(task['title'])
-            TOTAL_NUMBER_OF_TASKS += 1
 
-    print("Employee {} is done with tasks({}/{}):".
-          format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS,
-                TOTAL_NUMBER_OF_TASKS))
-    for line in TASK_TITLE:
-        print("\t {}".format(line))
+    # Variables
+    USER_ID = employee_info[0]['userId']
+    USERNAME = employee_user_id['username']
+    list_to_json = []
+    for task in employee_info:
+        dict_to_json = {}
+        dict_to_json['task'] = task['title']
+        dict_to_json['completed'] = task['completed']
+        dict_to_json['username'] = USERNAME
+        list_to_json.append(dict_to_json)
+
+    dict_to_json = {USER_ID : list_to_json}
+
+    filename = str(USER_ID) + '.json'
+
+    with open(filename, 'w') as f:
+        line_to_write = json.dump(dict_to_json, f)
+        f.close()
