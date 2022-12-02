@@ -27,6 +27,6 @@ if __name__ == '__main__':
                 dict_auxiliar['username'] = USERNAME # add username
                 list_to_json.append(dict_auxiliar)
                 dict_to_json[USER_ID] = list_to_json # add the new list to the dict_to_json
-            
+
         json.dump(dict_to_json, f) # write the file
         f.close()
