@@ -17,10 +17,11 @@ if __name__ == '__main__':
             USERNAME = employee_user_id[count_user]['username']
             # choose username
             USER_ID = employee_user_id[count_user]['id']  # choose user_id
+            # get the user's task
             employee_info = requests.\
                 get('https://jsonplaceholder.typicode.com/todos?userId={}'.
                     format(employee_user_id[count_user]['id'])).\
-                    json()  # get the user's task
+                json()
 
             list_to_json = []
             for dict_auxiliar in employee_info:
