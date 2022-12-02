@@ -26,7 +26,7 @@ if __name__ == '__main__':
 
     with open(filename, 'w') as f:
         for task in employee_info:
-            f.write("\"{}\", \"{}\", \"{}\", \"{}\"\n".
+            f.write("\"{}\",\"{}\",\"{}\",\"{}\"\n".
                     format(USER_ID, USERNAME,
                            task['completed'], task['title']))
         f.close()
