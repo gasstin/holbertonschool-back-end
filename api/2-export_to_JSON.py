@@ -30,7 +30,7 @@ if __name__ == '__main__':
         dict_to_json['username'] = USERNAME
         list_to_json.append(dict_to_json)
 
-    dict_to_json = {USER_ID : list_to_json}
+    dict_to_json = {USER_ID: list_to_json}
 
     filename = str(USER_ID) + '.json'
 
