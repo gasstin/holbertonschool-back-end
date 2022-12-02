@@ -30,7 +30,7 @@ if __name__ == '__main__':
             TOTAL_NUMBER_OF_TASKS += 1
 
     print("Employee {} is done with tasks({}/{}):".
-        format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS,
-                TOTAL_NUMBER_OF_TASKS))
+          format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS,
+                 TOTAL_NUMBER_OF_TASKS))
     for line in TASK_TITLE:
         print("\t {}".format(line))
