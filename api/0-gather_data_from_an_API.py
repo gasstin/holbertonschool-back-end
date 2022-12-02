@@ -10,8 +10,6 @@ if __name__ == '__main__':
     """
     import requests
     import sys
-
-
     employee_id = sys.argv[1]
     employee_user_id = requests.\
         get('https://jsonplaceholder.typicode.com/users/{}'.
@@ -33,6 +31,6 @@ if __name__ == '__main__':
 
     print("Employee {} is done with tasks({}/{}):".
         format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS,
-               TOTAL_NUMBER_OF_TASKS))
+                TOTAL_NUMBER_OF_TASKS))
     for line in TASK_TITLE:
         print("\t {}".format(line))
