@@ -13,15 +13,12 @@ if __name__ == '__main__':
 
 
     employee_id = sys.argv[1]
-
     employee_user_id = requests.\
-        get('https://jsonplaceholder.typicode.com/users/{}'.\
+        get('https://jsonplaceholder.typicode.com/users/{}'.
             format(employee_id)).json()
-
     employee_info = requests.\
-        get('https://jsonplaceholder.typicode.com/todos?userId={}'.\
+        get('https://jsonplaceholder.typicode.com/todos?userId={}'.
             format(employee_user_id['id'])).json()
-
     # Variables
     EMPLOYEE_NAME = employee_user_id['name']
     NUMBER_OF_DONE_TASKS = 0
@@ -34,7 +31,7 @@ if __name__ == '__main__':
                 TASK_TITLE.append(task['title'])
             TOTAL_NUMBER_OF_TASKS += 1
 
-    print("Employee {} is done with tasks({}/{}):".\
+    print("Employee {} is done with tasks({}/{}):".
         format(EMPLOYEE_NAME, NUMBER_OF_DONE_TASKS,
                TOTAL_NUMBER_OF_TASKS))
     for line in TASK_TITLE:
