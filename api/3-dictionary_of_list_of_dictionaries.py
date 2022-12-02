@@ -18,7 +18,7 @@ if __name__ == '__main__':
             # choose username
             USER_ID = employee_user_id[count_user]['id']  # choose user_id
             employee_info = requests.\
-            get('https://jsonplaceholder.typicode.com/todos?userId={}'.
+                get('https://jsonplaceholder.typicode.com/todos?userId={}'.
                 format(employee_user_id[count_user]['id'])).\
                 json()  # get the user's task
 
@@ -35,7 +35,7 @@ if __name__ == '__main__':
 
                 list_to_json.append(dict_auxiliar)
                 # add the new list to the dict_to_json
-                dict_to_json[USER_ID] = list_to_json  
+                dict_to_json[USER_ID] = list_to_json
 
         json.dump(dict_to_json, f)  # write the file
         f.close()
